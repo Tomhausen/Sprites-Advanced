@@ -10,9 +10,9 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "main.py",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "SpritesAdvanced.ts"
     ],
     "testFiles": [
         "test.ts"
