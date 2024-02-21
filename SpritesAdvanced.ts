@@ -1,5 +1,15 @@
 namespace spriteutils {
 
+    let framesPerSecond: number = 0;
+    let deltaTime: number = 0;
+    game.onUpdate(() => {
+        framesPerSecond++;
+    })
+    game.onUpdateInterval(1000, () => {
+        deltaTime = 1000 / framesPerSecond;
+        framesPerSecond = 0
+    })
+
     /**
      * Returns a given list of sprites sorted by their distance to a given sprite
      */
@@ -13,22 +23,33 @@ namespace spriteutils {
     //% weight=20     
 
     export function sortListOfSpritesByDistanceFrom(sprite: Sprite, allSprites: Sprite[]): Sprite[] {
-        let sortedSprites: Sprite[] = []
-        sortedSprites.push(allSprites.shift())
-        allSprites.forEach(function (unsortedSprite: Sprite) {
-            let inserted = false
+        let sortedSprites: Sprite[] = [];
+        sortedSprites.push(allSprites.shift());
+        allSprites.forEach((unsortedSprite: Sprite) => {
+            let inserted = false;
             for (let i = 0; i < sortedSprites.length; i++) {
-                let sortedSprite: Sprite = sortedSprites[i]
+                let sortedSprite: Sprite = sortedSprites[i];
                 if (spriteutils.distanceBetween(sprite, unsortedSprite) < spriteutils.distanceBetween(sprite, sortedSprite)) {
-                    sortedSprites.insertAt(i, unsortedSprite)
-                    inserted = true
-                    break
+                    sortedSprites.insertAt(i, unsortedSprite);
+                    inserted = true;
+                    break;
                 }
             }
             if (!inserted) {
-                sortedSprites.push(unsortedSprite)
+                sortedSprites.push(unsortedSprite);
             }
         })
-        return sortedSprites
+        return sortedSprites;
+    }
+
+    /**
+     * Returns delta time - the length of a frame in ms
+     */
+    //% blockId=getDeltaTime
+    //% block="delta time"
+    //% group="General"
+    //% weight=20     
+    export function getDeltaTime(): number{
+        return deltaTime
     }
 }
