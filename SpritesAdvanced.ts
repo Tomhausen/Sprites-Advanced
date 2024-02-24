@@ -52,4 +52,16 @@ namespace spriteutils {
     export function getDeltaTime(): number{
         return deltaTime
     }
+
+    /**
+     * Returns all the sprites in the game
+     */
+    //% blockId=getAllSprites
+    //% block="array of all sprites"
+    //% group="Sprite"
+    //% weight=20  
+
+    export function getAllSprites(): Sprite[]{
+        return game.currentScene().allSprites as Sprite[]
+    }
 }
