@@ -64,4 +64,19 @@ namespace spriteutils {
     export function getAllSprites(): Sprite[]{
         return game.currentScene().allSprites as Sprite[]
     }
+
+    /**
+     * Does not run the code after the function until the boolean condition given is true
+     * Will pause the game if placed in a game loop
+     */
+    //% blockId=waitUntil
+    //% block="wait until $condition"
+    //% group="General"
+    //% weight=20 
+
+    export function waitUntil(condition: boolean){
+        pauseUntil(function (): boolean {
+            return condition
+        })
+    }
 }
