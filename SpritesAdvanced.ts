@@ -74,9 +74,9 @@ namespace spriteutils {
     //% group="General"
     //% weight=20 
 
-    export function waitUntil(condition: boolean){
-        pauseUntil(function (): boolean {
-            return condition
-        })
-    }
+    // export function waitUntil(condition: boolean){
+    //     pauseUntil(function (): boolean {
+    //         return condition
+    //     })
+    // }
 }
